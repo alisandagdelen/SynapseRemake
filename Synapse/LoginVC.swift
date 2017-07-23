@@ -19,6 +19,12 @@ class LoginVC: BaseVC {
         setStyle()
     }
     
+    @IBAction func actsignIn(_ sender: ADButton) {
+        UIButton.animate(withDuration: 0.3) { 
+            sender.transform = CGAffineTransform(scaleX: 0.1, y: 1)
+        }
+    }
+    
     func setStyle() {
         txtFieldLogin.backgroundColor = UIColor.clear
         txtFieldPassword.backgroundColor = UIColor.clear
