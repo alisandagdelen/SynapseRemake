@@ -1,0 +1,11 @@
+# Xcode
+#
+build/
+Pods/
+*.pbxuser
+!default.pbxuser
+*.hmap
+*.ipa
+*.xcuserstate
+xcuserstate/
+xuserdata/*
