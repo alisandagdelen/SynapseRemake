@@ -114,7 +114,7 @@ class LoginVC: BaseVC {
                 }
             })
         } else {
-            self.animateButton(false)
+            animateButton(false)
         }
     }
     
