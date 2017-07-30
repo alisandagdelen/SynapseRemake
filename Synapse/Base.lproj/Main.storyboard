@@ -142,7 +142,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnSignIn" destination="JEN-8y-Ydp" id="FAe-1u-cjm"/>
-                        <outlet property="txtFieldLogin" destination="Bwk-Na-f8K" id="21B-eU-riS"/>
+                        <outlet property="txtFieldEmail" destination="Bwk-Na-f8K" id="J21-hE-Pap"/>
                         <outlet property="txtFieldPassword" destination="bWD-Fm-BjZ" id="p4x-9A-i5n"/>
                     </connections>
                 </viewController>

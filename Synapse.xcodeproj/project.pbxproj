@@ -10,6 +10,8 @@
 		3B1620341F255B3000508DA9 /* ADButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1620331F255B3000508DA9 /* ADButton.swift */; };
 		3B1620411F27FC2F00508DA9 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1620401F27FC2F00508DA9 /* RegisterVC.swift */; };
 		3B35F1B21F24F470006B7473 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35F1B11F24F470006B7473 /* LoginVC.swift */; };
+		3B50BA181F2E2CB7001AA45C /* SynapseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50BA171F2E2CB7001AA45C /* SynapseService.swift */; };
+		3B50BA1C1F2E3534001AA45C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50BA1B1F2E3534001AA45C /* User.swift */; };
 		3B96A1911F1129BB0049F129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96A1901F1129BB0049F129 /* AppDelegate.swift */; };
 		3B96A1961F1129BB0049F129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B96A1941F1129BB0049F129 /* Main.storyboard */; };
 		3B96A1981F1129BB0049F129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B96A1971F1129BB0049F129 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		3B1620331F255B3000508DA9 /* ADButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADButton.swift; sourceTree = "<group>"; };
 		3B1620401F27FC2F00508DA9 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		3B35F1B11F24F470006B7473 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3B50BA171F2E2CB7001AA45C /* SynapseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynapseService.swift; sourceTree = "<group>"; };
+		3B50BA1B1F2E3534001AA45C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B96A18D1F1129BB0049F129 /* Synapse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synapse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B96A1901F1129BB0049F129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B96A1951F1129BB0049F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				3B96A1C01F1199480049F129 /* DataService.swift */,
+				3B50BA171F2E2CB7001AA45C /* SynapseService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				3B96A1C31F11A1640049F129 /* BaseObject.swift */,
+				3B50BA1B1F2E3534001AA45C /* User.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B50BA1C1F2E3534001AA45C /* User.swift in Sources */,
 				3B96A1C11F1199480049F129 /* DataService.swift in Sources */,
 				3B96A1C71F11A2740049F129 /* RealmHelper.swift in Sources */,
 				3B96A1C41F11A1640049F129 /* BaseObject.swift in Sources */,
@@ -422,6 +429,7 @@
 				3B1620411F27FC2F00508DA9 /* RegisterVC.swift in Sources */,
 				3B1620341F255B3000508DA9 /* ADButton.swift in Sources */,
 				3B35F1B21F24F470006B7473 /* LoginVC.swift in Sources */,
+				3B50BA181F2E2CB7001AA45C /* SynapseService.swift in Sources */,
 				3BBA987A1F1551D2003BAEDE /* BaseVC.swift in Sources */,
 				3B96A1911F1129BB0049F129 /* AppDelegate.swift in Sources */,
 				3B96A1C91F11B62F0049F129 /* Constants.swift in Sources */,
