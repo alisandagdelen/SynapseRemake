@@ -11,12 +11,12 @@ import KDCircularProgress
 
 class LoginVC: BaseVC {
     
+    @IBOutlet weak var txtFieldEmail: UITextField!
     @IBOutlet weak var txtFieldPassword: UITextField!
-    @IBOutlet weak var txtFieldLogin: UITextField!
     @IBOutlet weak var btnSignIn: ADButton!
     
     var progress: KDCircularProgress!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,21 +24,41 @@ class LoginVC: BaseVC {
     }
     
     @IBAction func actsignIn(_ sender: ADButton) {
-        UIButton.animate(withDuration: 0.3, animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.1, y: 1)
-        }) { (complete) in
-            self.animateProgressCircle()
+        animateButton(true)
+        login()
+    }
+    
+    func login() {
+        if let email = txtFieldEmail.text, let password = txtFieldPassword.text {
+            DataService.sharedInstance.login(email, password: password) { (success, error) in
+                    self.handleLogin(success)
+            }
         }
     }
     
     func setStyle() {
         
-        txtFieldLogin.backgroundColor = UIColor.clear
+        txtFieldEmail.backgroundColor = UIColor.clear
         txtFieldPassword.backgroundColor = UIColor.clear
         
         let placeholderColor = UIColor.lightText
-        txtFieldLogin.attributedPlaceholder = NSAttributedString(string: "Your e-mail", attributes: [NSForegroundColorAttributeName : placeholderColor])
+        txtFieldEmail.attributedPlaceholder = NSAttributedString(string: "Your e-mail", attributes: [NSForegroundColorAttributeName : placeholderColor])
         txtFieldPassword.attributedPlaceholder = NSAttributedString(string: "Your password", attributes: [NSForegroundColorAttributeName : placeholderColor])
+    }
+    
+    func animateButton(_ start:Bool) {
+        if !start {
+            UIApplication.shared.endIgnoringInteractionEvents()
+            progress.removeFromSuperview()
+        }
+        UIButton.animate(withDuration: 0.3, animations: {
+            let animateType = start ? CGAffineTransform(scaleX: 0.1, y: 1) : .identity
+            self.btnSignIn.transform = animateType
+        }) { (complete) in
+            if start {
+                self.initProgressCircle()
+            }
+        }
     }
     
     func createProgressCircle() {
@@ -61,15 +81,38 @@ class LoginVC: BaseVC {
         view.addSubview(progress)
     }
     
-    func animateProgressCircle() {
+    func initProgressCircle() {
         if progress == nil {
             createProgressCircle()
+        } else if progress.superview == nil {
+            self.view.addSubview(progress)
         }
+        
+        animateProgressCircle()
+    }
+    
+    func animateProgressCircle() {
         progress.animate(fromAngle: 0, toAngle: 360, duration: 1.5) { completed in
             if completed {
                 self.progress.angle = -200
                 self.animateProgressCircle()
             }
+        }
+    }
+    
+    func handleLogin(_ success:Bool) {
+        if success {
+            self.progress.set(colors: UIColor.clear)
+            UIView.animate(withDuration: 0.7, animations: {
+                self.progress.transform = CGAffineTransform(scaleX: 25, y: 25)
+            }, completion: { (complete) in
+                if complete {
+                    AlertView.show(.success, "Giriş Başarılı")
+                    self.performSegue(withIdentifier: "loginSuccess", sender: nil)
+                }
+            })
+        } else {
+            animateButton(false)
         }
     }
     
