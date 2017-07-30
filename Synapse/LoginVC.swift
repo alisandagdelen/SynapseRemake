@@ -31,7 +31,9 @@ class LoginVC: BaseVC {
     func login() {
         if let email = txtFieldEmail.text, let password = txtFieldPassword.text {
             DataService.sharedInstance.login(email, password: password) { (success, error) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
                     self.handleLogin(success)
+                })
             }
         }
     }
@@ -62,7 +64,6 @@ class LoginVC: BaseVC {
     }
     
     func createProgressCircle() {
-        UIApplication.shared.beginIgnoringInteractionEvents()
         progress = KDCircularProgress(frame: CGRect(x: btnSignIn.center.x, y: btnSignIn.center.y, width: 65, height: 65))
         progress.center = CGPoint(x: btnSignIn.center.x, y: btnSignIn.center.y)
         progress.startAngle = -90
@@ -82,6 +83,7 @@ class LoginVC: BaseVC {
     }
     
     func initProgressCircle() {
+        UIApplication.shared.beginIgnoringInteractionEvents()
         if progress == nil {
             createProgressCircle()
         } else if progress.superview == nil {
@@ -112,7 +114,7 @@ class LoginVC: BaseVC {
                 }
             })
         } else {
-            animateButton(false)
+            self.animateButton(false)
         }
     }
     
