@@ -13,6 +13,7 @@ PODS:
   - Realm/Headers (2.8.3)
   - RealmSwift (2.8.3):
     - Realm (= 2.8.3)
+  - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
   - AlamofireObjectMapper
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - KDCircularProgress
   - ObjectMapper
   - RealmSwift
+  - SCLAlertView
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -31,7 +33,8 @@ SPEC CHECKSUMS:
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: da1f774bebb14fa9a3166a0d63f058004515da0c
+PODFILE CHECKSUM: baf6534e381ae847efb255863695309be382f7a4
 
 COCOAPODS: 1.2.1

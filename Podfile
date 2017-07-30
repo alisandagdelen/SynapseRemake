@@ -11,6 +11,8 @@ target 'Synapse' do
     pod 'ObjectMapper'
     pod 'RealmSwift'
     pod 'AlamofireObjectMapper'
+    
+    pod 'SCLAlertView'
     pod 'KDCircularProgress'
 
 end
