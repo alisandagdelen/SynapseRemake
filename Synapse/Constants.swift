@@ -9,5 +9,5 @@
 import Foundation
 
 enum API {
-    static let BaseURL = "https://example.com/v1/"    
+    static let BaseURL = "https://synapse-restapi.herokuapp.com/"
 }
