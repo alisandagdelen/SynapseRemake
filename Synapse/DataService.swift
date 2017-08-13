@@ -122,30 +122,23 @@ class DataService{
 //        sendObject(object, type: type, method: .patch, path: path, params: params, result)
 //    }
     
-    func login(_ email: String, password: String, result:@escaping ResultBlock) {
+    func login<T:BaseObject>(_ email: String, password: String, result:@escaping GenericObjectBlock<T>) {
         let params = [
             "email": email,
             "password": password
         ]
         let loginUrl = "\(User.url())/login"
         
-        callRequest(Router(method: .post, path: loginUrl, params: params)).responseObject { (response:DataResponse<User>) -> Void in
+        callRequest(Router(method: .post, path: loginUrl, params: params)).responseObject { (response:DataResponse<T>) -> Void in
             
-            if let object = response.result.value{
-                _ = User.saveLocal(object, isNew: false)
-                result(true, nil)
+            if let user = response.result.value{
+                _ = User.saveLocal(user, isNew: false)
+                result(user, nil)
             }else {
-                result(false, "Login Failed!")
+//                result(false, response.result.error)
             }
         }
-//        DataService.sharedInstance.postObject(user, type: User.self, path: nil, params: params) { (object, error) in
-//            if let object = object as? User{
-//                user = object
-//                _ = User.saveLocal(user, isNew: false)
-//            } else {
-//                result(nil, error)
-//            }
-//        }
+
     }
     
 }

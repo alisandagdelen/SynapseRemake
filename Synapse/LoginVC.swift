@@ -30,9 +30,13 @@ class LoginVC: BaseVC {
     
     func login() {
         if let email = txtFieldEmail.text, let password = txtFieldPassword.text {
+            
+            DataService.sharedInstance.login(email, password: password, result: { (users:User?, error:Error?) in
+                
+            })
             DataService.sharedInstance.login(email, password: password) { (success, error) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
-                    self.handleLogin(success)
+                    self.handleLogin((success != nil))
                 })
             }
         }
