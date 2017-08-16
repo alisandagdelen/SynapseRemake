@@ -11,8 +11,8 @@ import KDCircularProgress
 
 class LoginVC: BaseVC {
     
-    @IBOutlet weak var txtFieldEmail: UITextField!
-    @IBOutlet weak var txtFieldPassword: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnSignIn: ADButton!
     
     var progress: KDCircularProgress!
@@ -28,28 +28,45 @@ class LoginVC: BaseVC {
         login()
     }
     
+    @IBAction func actShowSignUpVC(_ sender: UIButton) {
+        
+        let registerVC = prepareVC(type:RegisterVC.self) as! RegisterVC
+        registerVC.modalTransitionStyle = .flipHorizontal
+        showVC(vc:registerVC)
+    }
+    
     func login() {
-        if let email = txtFieldEmail.text, let password = txtFieldPassword.text {
-            
-            DataService.sharedInstance.login(email, password: password, result: { (users:User?, error:Error?) in
-                
+        
+        guard let email = txtEmail.text else { return }
+        guard let password = txtPassword.text else { return }
+        
+        if !email.isValidEmail() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                self.handleLogin(false)
             })
-            DataService.sharedInstance.login(email, password: password) { (success, error) in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
-                    self.handleLogin((success != nil))
-                })
-            }
+            AlertView.show(.warning, title: "Login Failed", subTitle: "Invalid e-mail")
+            return
         }
+        
+        DataService.sharedInstance.login(email, password: password, result: { (user:User?, error:Error?) in
+            if let user = user {
+                _ = User.saveLocal(user, isNew: false)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                self.handleLogin((user != nil))
+            })
+            
+        })
     }
     
     func setStyle() {
         
-        txtFieldEmail.backgroundColor = UIColor.clear
-        txtFieldPassword.backgroundColor = UIColor.clear
+        txtEmail.backgroundColor = UIColor.clear
+        txtPassword.backgroundColor = UIColor.clear
         
         let placeholderColor = UIColor.lightText
-        txtFieldEmail.attributedPlaceholder = NSAttributedString(string: "Your e-mail", attributes: [NSForegroundColorAttributeName : placeholderColor])
-        txtFieldPassword.attributedPlaceholder = NSAttributedString(string: "Your password", attributes: [NSForegroundColorAttributeName : placeholderColor])
+        txtEmail.attributedPlaceholder = NSAttributedString(string: "Your e-mail", attributes: [NSForegroundColorAttributeName : placeholderColor])
+        txtPassword.attributedPlaceholder = NSAttributedString(string: "Your password", attributes: [NSForegroundColorAttributeName : placeholderColor])
     }
     
     func animateButton(_ start:Bool) {
@@ -113,19 +130,15 @@ class LoginVC: BaseVC {
                 self.progress.transform = CGAffineTransform(scaleX: 25, y: 25)
             }, completion: { (complete) in
                 if complete {
-                    AlertView.show(.success, "Giriş Başarılı")
+                    AlertView.show(.success, "Login Successful")
                     self.performSegue(withIdentifier: "loginSuccess", sender: nil)
                 }
             })
         } else {
             animateButton(false)
+            AlertView.show(.warning, "Login Failed")
         }
     }
     
-    @IBAction func actShowSignUpVC(_ sender: UIButton) {
-        
-        let registerVC = prepareVC(type:RegisterVC.self) as! RegisterVC
-        registerVC.modalTransitionStyle = .flipHorizontal
-        showVC(vc:registerVC)
-    }
+    
 }
