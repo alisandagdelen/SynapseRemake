@@ -13,6 +13,8 @@
 		3B50BA181F2E2CB7001AA45C /* SynapseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50BA171F2E2CB7001AA45C /* SynapseService.swift */; };
 		3B50BA1C1F2E3534001AA45C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50BA1B1F2E3534001AA45C /* User.swift */; };
 		3B50BA221F2E70F4001AA45C /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50BA211F2E70F4001AA45C /* AlertView.swift */; };
+		3B8CF8531F44FD580072A6F3 /* ADView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8CF8521F44FD580072A6F3 /* ADView.swift */; };
+		3B8CF8551F44FE140072A6F3 /* ADImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8CF8541F44FE140072A6F3 /* ADImageView.swift */; };
 		3B96A1911F1129BB0049F129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96A1901F1129BB0049F129 /* AppDelegate.swift */; };
 		3B96A1961F1129BB0049F129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B96A1941F1129BB0049F129 /* Main.storyboard */; };
 		3B96A1981F1129BB0049F129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B96A1971F1129BB0049F129 /* Assets.xcassets */; };
@@ -26,6 +28,10 @@
 		3B96A1CB1F123E720049F129 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96A1CA1F123E720049F129 /* Extensions.swift */; };
 		3BBA987A1F1551D2003BAEDE /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA98791F1551D2003BAEDE /* BaseVC.swift */; };
 		3BBA987C1F155F65003BAEDE /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA987B1F155F65003BAEDE /* ContainerVC.swift */; };
+		3BE0464A1F40F70900D5E394 /* SynapseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE046491F40F70900D5E394 /* SynapseTabBarController.swift */; };
+		3BE0464C1F41044700D5E394 /* ReminderCategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0464B1F41044700D5E394 /* ReminderCategoriesVC.swift */; };
+		3BE0464F1F4240B400D5E394 /* CCellCategories.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE0464E1F4240B400D5E394 /* CCellCategories.xib */; };
+		3BE046511F42488800D5E394 /* CCellCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE046501F42488800D5E394 /* CCellCategories.swift */; };
 		AEB9EF162EB8B8D5F6D62926 /* Pods_Synapse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCA19244FA5215BCEC78FBF /* Pods_Synapse.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +62,8 @@
 		3B50BA171F2E2CB7001AA45C /* SynapseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynapseService.swift; sourceTree = "<group>"; };
 		3B50BA1B1F2E3534001AA45C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B50BA211F2E70F4001AA45C /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		3B8CF8521F44FD580072A6F3 /* ADView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADView.swift; sourceTree = "<group>"; };
+		3B8CF8541F44FE140072A6F3 /* ADImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADImageView.swift; sourceTree = "<group>"; };
 		3B96A18D1F1129BB0049F129 /* Synapse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synapse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B96A1901F1129BB0049F129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B96A1951F1129BB0049F129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +83,10 @@
 		3B96A1CA1F123E720049F129 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3BBA98791F1551D2003BAEDE /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		3BBA987B1F155F65003BAEDE /* ContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		3BE046491F40F70900D5E394 /* SynapseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynapseTabBarController.swift; sourceTree = "<group>"; };
+		3BE0464B1F41044700D5E394 /* ReminderCategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCategoriesVC.swift; sourceTree = "<group>"; };
+		3BE0464E1F4240B400D5E394 /* CCellCategories.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCellCategories.xib; sourceTree = "<group>"; };
+		3BE046501F42488800D5E394 /* CCellCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCellCategories.swift; sourceTree = "<group>"; };
 		C79E700E71281F647627DDBA /* Pods-Synapse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Synapse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Synapse/Pods-Synapse.debug.xcconfig"; sourceTree = "<group>"; };
 		ECCA19244FA5215BCEC78FBF /* Pods_Synapse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Synapse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65DCCBD47DB3A123FFFA2A5 /* Pods_BaseProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				3B1620331F255B3000508DA9 /* ADButton.swift */,
+				3B8CF8521F44FD580072A6F3 /* ADView.swift */,
+				3B8CF8541F44FE140072A6F3 /* ADImageView.swift */,
 			);
 			name = IBDesignables;
 			sourceTree = "<group>";
@@ -117,6 +131,7 @@
 		3B50BA201F2E70DF001AA45C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3BE0464D1F42408B00D5E394 /* CustomCollectionCells */,
 				3B50BA211F2E70F4001AA45C /* AlertView.swift */,
 			);
 			name = Views;
@@ -223,8 +238,19 @@
 				3BBA987B1F155F65003BAEDE /* ContainerVC.swift */,
 				3B35F1B11F24F470006B7473 /* LoginVC.swift */,
 				3B1620401F27FC2F00508DA9 /* RegisterVC.swift */,
+				3BE046491F40F70900D5E394 /* SynapseTabBarController.swift */,
+				3BE0464B1F41044700D5E394 /* ReminderCategoriesVC.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3BE0464D1F42408B00D5E394 /* CustomCollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				3BE0464E1F4240B400D5E394 /* CCellCategories.xib */,
+				3BE046501F42488800D5E394 /* CCellCategories.swift */,
+			);
+			name = CustomCollectionCells;
 			sourceTree = "<group>";
 		};
 		DF33DE30D2FF0A818DC4E406 /* Pods */ = {
@@ -358,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B96A19B1F1129BB0049F129 /* LaunchScreen.storyboard in Resources */,
+				3BE0464F1F4240B400D5E394 /* CCellCategories.xib in Resources */,
 				3B96A1981F1129BB0049F129 /* Assets.xcassets in Resources */,
 				3B96A1961F1129BB0049F129 /* Main.storyboard in Resources */,
 			);
@@ -432,15 +459,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE046511F42488800D5E394 /* CCellCategories.swift in Sources */,
 				3B50BA1C1F2E3534001AA45C /* User.swift in Sources */,
 				3B96A1C11F1199480049F129 /* DataService.swift in Sources */,
 				3B96A1C71F11A2740049F129 /* RealmHelper.swift in Sources */,
 				3B96A1C41F11A1640049F129 /* BaseObject.swift in Sources */,
 				3BBA987C1F155F65003BAEDE /* ContainerVC.swift in Sources */,
 				3B1620411F27FC2F00508DA9 /* RegisterVC.swift in Sources */,
+				3B8CF8551F44FE140072A6F3 /* ADImageView.swift in Sources */,
 				3B1620341F255B3000508DA9 /* ADButton.swift in Sources */,
+				3BE0464A1F40F70900D5E394 /* SynapseTabBarController.swift in Sources */,
 				3B35F1B21F24F470006B7473 /* LoginVC.swift in Sources */,
 				3B50BA181F2E2CB7001AA45C /* SynapseService.swift in Sources */,
+				3B8CF8531F44FD580072A6F3 /* ADView.swift in Sources */,
+				3BE0464C1F41044700D5E394 /* ReminderCategoriesVC.swift in Sources */,
 				3B50BA221F2E70F4001AA45C /* AlertView.swift in Sources */,
 				3BBA987A1F1551D2003BAEDE /* BaseVC.swift in Sources */,
 				3B96A1911F1129BB0049F129 /* AppDelegate.swift in Sources */,
@@ -601,7 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Synapse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AD.Synapse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -615,7 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Synapse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AD.Synapse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
