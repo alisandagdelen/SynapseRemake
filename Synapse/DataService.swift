@@ -62,11 +62,11 @@ class DataService{
         return Alamofire.request(req).validate()
     }
     
-    private func getOrDeleteObject(type:BaseObject.Type, method:Alamofire.HTTPMethod, path:String? , params:[String : Any]?, _ result:@escaping BaseObjectBlock){
+    private func getOrDeleteObject<T:BaseObject>(type:BaseObject.Type, method:Alamofire.HTTPMethod, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>){
         
         let url:String! = path ?? type.url()
         
-        callRequest(Router(method: method, path: url, params: params)).responseObject { (response:DataResponse<BaseObject>) -> Void in
+        callRequest(Router(method: method, path: url, params: params)).responseObject { (response:DataResponse<T>) -> Void in
             if let object = response.result.value {
                 result(object, nil)
             }else {
@@ -75,10 +75,10 @@ class DataService{
         }
     }
     
-    private func sendObject<T:BaseObject>(_ object:BaseObject, type:BaseObject.Type, method:Alamofire.HTTPMethod, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
+    private func sendObject<T:BaseObject>(_ object:BaseObject?, type:BaseObject.Type, method:Alamofire.HTTPMethod, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
         
         let url:String! = path ?? type.url()
-        let reqParams = params ?? object.toJSON()
+        let reqParams = object?.toJSON() ?? params
         
         callRequest(Router(method: .post, path: url, params: reqParams)).responseObject { (response:DataResponse<T>) -> Void in
             if let object = response.result.value {
@@ -101,26 +101,26 @@ class DataService{
             }
         }
     }
-//    
-//    func getObject(type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping BaseObjectBlock) {
-//        getOrDeleteObject(type: type, method: .get, path: path, params: params, result)
-//    }
-//    
-//    func deleteObject(type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping BaseObjectBlock) {
-//        getOrDeleteObject(type: type, method: .delete, path: path, params: params, result)
-//    }
-//  
-//    func putObject(_ object:BaseObject, type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping BaseObjectBlock) {
-//        sendObject(object, type: type, method: .put, path: path, params: params, result)
-//    }
-//    
-//    func postObject(_ object:BaseObject, type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping BaseObjectBlock) {
-//        sendObject(object, type: type, method: .post, path: path, params: params, result)
-//    }
-//    
-//    func patchObject(_ object:BaseObject, type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping BaseObjectBlock) {
-//        sendObject(object, type: type, method: .patch, path: path, params: params, result)
-//    }
+    
+    func getObject<T:BaseObject>(type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
+        getOrDeleteObject(type: type, method: .get, path: path, params: params, result)
+    }
+    
+    func deleteObject<T:BaseObject>(type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
+        getOrDeleteObject(type: type, method: .delete, path: path, params: params, result)
+    }
+  
+    func putObject<T:BaseObject>(_ object:BaseObject, type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
+        sendObject(object, type: type, method: .put, path: path, params: params, result)
+    }
+    
+    func postObject<T:BaseObject>(_ object:BaseObject?, type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
+        sendObject(object, type: type, method: .post, path: path, params: params, result)
+    }
+    
+    func patchObject<T:BaseObject>(_ object:BaseObject, type:BaseObject.Type, path:String? , params:[String : Any]?, _ result:@escaping GenericObjectBlock<T>) {
+        sendObject(object, type: type, method: .patch, path: path, params: params, result)
+    }
     
     func login<T:BaseObject>(_ email: String, password: String, result:@escaping GenericObjectBlock<T>) {
         let params = [
@@ -129,17 +129,18 @@ class DataService{
         ]
         let loginUrl = "\(User.url())/login"
         
-        callRequest(Router(method: .post, path: loginUrl, params: params)).responseObject { (response:DataResponse<T>) -> Void in
-            
-            if let user = response.result.value{
-                _ = User.saveLocal(user, isNew: false)
-                result(user, nil)
-            }else {
-//                result(false, response.result.error)
-            }
-        }
-
+        postObject(nil, type: User.self, path: loginUrl, params: params, result)
     }
+    
+    func register<T:BaseObject>(_ email: String, password: String, username:String, result:@escaping GenericObjectBlock<T>) {
+        let params = [
+            "email": email,
+            "password": password,
+            "username": username
+        ]
+     postObject(nil, type: User.self, path: nil, params: params, result)
+    }
+    
     
 }
 
