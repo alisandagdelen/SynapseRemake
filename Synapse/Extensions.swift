@@ -128,6 +128,27 @@ extension UIView {
     }
 }
 
+extension UIColor {
+    public convenience init(R: Int, G: Int, B: Int) {
+        self.init(red:CGFloat(R)/255.0, green:CGFloat(G)/255.0, blue:CGFloat(B)/255.0, alpha:1.0)
+    }
+    
+    public class func randomColor() -> UIColor {
+        
+        let randomRed:CGFloat = CGFloat(drand48())
+        
+        let randomGreen:CGFloat = CGFloat(drand48())
+        
+        let randomBlue:CGFloat = CGFloat(drand48())
+        
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+    }
+    
+    public class func synapseTabColor() -> UIColor {
+        return UIColor(R:0, G:27, B:43)
+    }
+}
+
 extension NSObject {
     
     class func className() -> String {
