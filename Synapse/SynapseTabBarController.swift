@@ -10,9 +10,20 @@ import UIKit
 
 class SynapseTabBarController: UITabBarController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
+        setStyle()
+        
     }
+    
+    private func setStyle() {
+
+        UITabBar.appearance().barTintColor = UIColor.synapseTabColor()
+        
+    }
+
 }
 
 extension SynapseTabBarController: UITabBarControllerDelegate {
