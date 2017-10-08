@@ -9,7 +9,7 @@
 import UIKit
 import KDCircularProgress
 
-class LoginVC: BaseVC {
+class LoginVC: BaseVC, UITextFieldDelegate {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -52,6 +52,7 @@ class LoginVC: BaseVC {
             if let user = user {
                 _ = User.saveLocal(user, isNew: false)
             }
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
                 self.handleLogin((user != nil))
             })
@@ -59,6 +60,15 @@ class LoginVC: BaseVC {
         })
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == txtEmail {
+            txtPassword.becomeFirstResponder()
+        } else {
+            self.view.endEditing(true)
+        }
+        return true
+    }
+        
     func setStyle() {
         
         txtEmail.backgroundColor = UIColor.clear
@@ -130,7 +140,7 @@ class LoginVC: BaseVC {
                 self.progress.transform = CGAffineTransform(scaleX: 25, y: 25)
             }, completion: { (complete) in
                 if complete {
-                    AlertView.show(.success, "Login Successful")
+                    UIApplication.shared.endIgnoringInteractionEvents()
                     self.performSegue(withIdentifier: "loginSuccess", sender: nil)
                 }
             })
